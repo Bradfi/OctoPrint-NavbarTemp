@@ -130,10 +130,10 @@ class Armbian(SBC):
         # TODO: depending on situation in the future maybe it will be necessary to split it.
         temp = re_output.group(1)
         if len(temp) == 2 or len(temp) == 3:
-            int t = float(temp) 
+            float t = float(temp) 
             return (t * (9/5)) + 32
         elif len(temp) >= 4:
-            int t = float(re_output.group(1)) / 1000 
+            float t = float(re_output.group(1)) / 1000 
             return (t * (9/5)) + 32
 
         return float(re_output.group(1))
