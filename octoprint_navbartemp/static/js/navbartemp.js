@@ -21,11 +21,11 @@ $(function() {
         };
 
         self.formatBarTemperature = function(toolName, actual, target) {
-            var output = toolName + ": " + _.sprintf("%.1f&deg;C", actual);
+            var output = toolName + ": " + _.sprintf("%.1f&deg;F", actual);
         
             if (target) {
                 var sign = (target >= actual) ? " \u21D7 " : " \u21D8 ";
-                output += sign + _.sprintf("%.1f&deg;C", target);
+                output += sign + _.sprintf("%.1f&deg;F", target);
             }
         
             return output;
@@ -37,7 +37,7 @@ $(function() {
             }
             else {
                 self.isSupported(data.isSupported);
-                self.socTemp(_.sprintf("SoC: %.1f&deg;C", data.soctemp));
+                self.socTemp(_.sprintf("SoC: %.1f&deg;F", data.soctemp));
             }
         };
     }

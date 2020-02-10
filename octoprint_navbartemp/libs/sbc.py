@@ -93,6 +93,7 @@ class SBC(object):
                 self.is_supported = False
             else:
                 temp = self.parse_tepmerature(match)
+                temp = (temp * (9/5)) + 32
                 self._logger.debug("match: %s" % str(temp))
 
             return temp
@@ -129,8 +130,10 @@ class Armbian(SBC):
         # TODO: depending on situation in the future maybe it will be necessary to split it.
         temp = re_output.group(1)
         if len(temp) == 2 or len(temp) == 3:
-            return float(temp)
+            int t = float(temp) 
+            return (t * (9/5)) + 32
         elif len(temp) >= 4:
-            return float(re_output.group(1)) / 1000
+            int t = float(re_output.group(1)) / 1000 
+            return (t * (9/5)) + 32
 
         return float(re_output.group(1))
